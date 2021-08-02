@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Title -->
+        <title>Hospital Ribera Povisa - Validación de documentos</title>
+
+        <!--Favicon-->
+        <link rel="shortcut icon" type="image/png" href="https://riberaverifier.povisa.es/img/favicon-192x192.png">
+
+        <!-- CSS -->
+        <link rel="styleSheet" type="text/css" href="https://riberaverifier.povisa.es/css/bootstrap.rs.min.css" />
+        <link rel="styleSheet" type="text/css" href="https://riberaverifier.povisa.es/css/fontawesome-5.6.3-all.css" />
+        <link rel="stylesheet" type="text/css" href="https://riberaverifier.povisa.es/css/povisa.css">
+
+        <!-- Fonts -->
+
+        <script src="https://www.google.com/recaptcha/api.js?render=6Ldd2IQbAAAAAM6ddKPv0GIjQN29oc2_Q5UmhxWp"></script>
+    </head>
+    <body>
+        <!-- DIV CABECERA CON LOGO -->
+        <div class="divCabecera">
+            <a href="https://riberasalud.com/povisa/" title="Hospital Povisa" rel="home">
+                <img class="header-image is-logo-image" alt="Hospital Povisa" src="https://riberaverifier.povisa.es/img/LogoPovisa.png" title="Hospital Povisa" width="240px"/>
+            </a>
+        </div>
+
+        <!-- DIV CONTENIDO PÁGINA -->
+        <div class="content">
+            <!-- DIV TEXTO PREVIO -->
+            <div class="text">
+                <h1 class="text-center text-primary">VERIFICACIÓN DE DOCUMENTOS FIRMADOS DIGITALMENTE</h1>
+                <h3 class="text-center text-primary">Los documentos electrónicos generados en el Hospital Ribera Povisa incluyen un código de verificación electrónica (CVE) que permite contrastar la autenticidad del documento mediante el acceso a los registros electrónicos del hospital</h3>
+
+                <div class="textoExplicativo">
+                    Para comprobar la firma electrónica y la integridad y autenticidad de un documento tiene que introducir el CVE (secuencia de números y letras) que aparece impreso en el documento que quiere verificar
+                </div>
+            </div>
+
+            <!-- DIV FORM -->
+            <div class="divForm">
+                <form method="GET" action="https://riberaverifier.povisa.es/validator" style="margin-left: 5vw;">
+                    <input type="hidden" name="_token" value="nTTcKJSAyiB4dWhycPJTuqDtW9mIkVKfJuHyOOFL">                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-6107d4cd83616"><script>
+  grecaptcha.ready(function() {
+      grecaptcha.execute('6Ldd2IQbAAAAAM6ddKPv0GIjQN29oc2_Q5UmhxWp', {action: 'register'}).then(function(token) {
+         document.getElementById('g-recaptcha-response-6107d4cd83616').value = token;
+      });
+  });
+  </script>
+                    <label style="color: rgb(194, 39, 61) !important; font-size: 1.5rem;" for="CVE">CVE: </label>
+                    <input type="text" name="CVE" id="CVE" value="cd80145c-e78a-4f7d-a6b9-ad4f0f33e218" size="36" style="margin:1vw;" autofocus="autofocus" minlength="36" maxlength="36"/>  
+                    <button type="submit" class="btn btn-primary" style="vertical-align: middle;">Validar</button> 
+                </form>
+            </div>
+
+            <!-- DIV CON RESULTADO -->
+            <div class="divResult">
+                <!--Si se valida correctamente el CVE-->
+                                    <h4 class="text-center text-primary">Se encontraron los siguientes datos del documento coincidente con el código CVE insertado:</h4>
+                    <h5 class="text-center text-primary"><i>The following document data was found matching the requested CVE code:</i></h5><br>
+
+                    <!--DIV CVE-->
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-2"><h5 class="text-primary">CVE:</h5></div>
+                        <div class="col-md-6">cd80145c-e78a-4f7d-a6b9-ad4f0f33e218</div>
+                    </div>
+
+                    <!--DIV SIGNED DATE-->
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-2"><h5 class="text-primary">Sello temporal:</h5></div>
+                        <div class="col-md-6">2021-06-08 17:38:51</div>
+                    </div>
+
+                   <!--DIV SIGNER DN-->
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-2"><h5 class="text-primary">Entidad que firma:</h5></div>
+                        <div class="col-md-6">CERTIFICADO POVISA</div>
+                    </div>
+                <!--Si no se obtiene resultado al validar el CVE-->
+                            </div>
+
+        </div>
+
+    </body>
+</html>
